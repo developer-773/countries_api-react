@@ -1,0 +1,37 @@
+.form {
+    display: flex;
+    justify-content: space-between;
+    padding: 48px 0;
+}
+
+.form_label, .form_input {
+    width: 100%;
+    max-width: 485px;
+}
+
+.form_input {
+    padding: 18px 15px 17px 58px;
+    font-size: 16px;
+    line-height: 19px;
+    margin-right: 8px;
+    background-image: url("https://wcountriess.netlify.app/images/search.png");
+    background-repeat: no-repeat;
+    background-position: calc(50% - 206px) calc(50% + 0px);
+    outline: 0;
+    border-radius: 5px;
+}
+
+.select {
+    width: 200px;
+    font-family: "Nunito Sans",Arial,sans-serif;
+    padding: 18px 24px;
+    box-shadow: 0 2px 9px rgb(0 0 0 / 5%);
+    border-radius: 5px;
+    border-right: 10px solid #fff;
+}
+
+.select option {
+    padding: 7px;
+    font-weight: 500;
+    font-size: 17px;
+}

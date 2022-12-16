@@ -1,0 +1,20 @@
+.country_item {
+    position: relative;
+    width: 264px;
+    min-height: 371px;
+    background-color: var(--form-color);
+    box-shadow: 0 0 7px 2px #00000008;
+    border-radius: 5px;
+}
+
+.country_item:nth-child(3) {
+    margin-right: 0;
+}
+
+.country_image {
+    width: 264px!important;
+    height: 165px !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #000;
+}

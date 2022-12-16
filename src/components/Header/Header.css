@@ -1,0 +1,45 @@
+.header {
+    margin-bottom: 5rem;
+    padding: 23px 0 24px 0;
+    background-color: var(--header-bgcolor);
+    color: var(--text-color);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+}
+
+.header_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    color: #111517;
+}
+
+.header_btn {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #111517;
+    border: 0;
+    background-color: transparent;
+}
+
+.header_btn::before {
+    content: "";
+    position: absolute;
+    top: 2.7rem;
+    right: 16.5rem;
+    width: 25px;
+    height: 25px;
+    background-image: url("https://wcountriess.netlify.app/images/path.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
