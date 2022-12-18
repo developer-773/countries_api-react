@@ -1,64 +1,84 @@
 import "./index.css";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/General/Header/Header";
+import Home from "./page/Home/Home";
+import Loader from "./components/General/Loader/Loader";
+import Footer from "./components/General/Footer/Footer";
+import CountryInfo from "./page/CountryInfo/CountryInfo";
 import { useState, useEffect } from "react";
-import Form from "./components/Form/Form";
-import Loader from "./components/Loader/Loader";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-
 	const [data, setData] = useState({
 		country: [],
 		isLoading: true,
-	})
-
-
+	});
 
 	useEffect(() => {
-		fetch("https://restcountries.com/v3.1/all")
-		.then(res => res.json())
-		.then(data => {
-			setData({
-				country: data,
-				isLoading: false,
-			})
-		})
-		.catch(err=> console.log(err))
+		async function getData() {
+			try {
+				const res = await fetch("https://restcountries.com/v3.1/all");
+				const data = await res.json();
+				setData({
+					country: data,
+					isLoading: false,
+				});
+			} catch (error) {}
+		}
+
+		getData();
 	}, []);
 
-	function searchCountries (str) {
-
-		fetch(`https://restcountries.com/v3.1/${str ? `name/${str}` : `all` }`)
-		.then(res => res.json())
-		.then(data => {
+	async function searchCountries(str) {
+		try {
+			const response = await fetch(
+				`https://restcountries.com/v3.1/${str ? `name/${str}` : `all`}`
+			);
+			const data = await response.json();
 			setData({
 				country: data,
 				isLoading: false,
-			})
-		})
+			});
+		} catch (err) {
+			console.log(err.message);
+		}
 	}
 
-	function searchCountriesBySelect (option) {
-		fetch(`https://restcountries.com/v3.1/${option ? `region/${option}` : `all` }`)
-		.then(res => res.json())
-		.then(data => {
+	async function searchCountriesBySelect(option) {
+		try {
+			const response = await fetch(
+				`https://restcountries.com/v3.1/${option ? `region/${option}` : `all`}`
+			);
+			const data = await response.json();
 			setData({
 				country: data,
 				isLoading: false,
-			})
-		})
-
+			});
+		} catch (err) {
+			console.log(err.message);
+		}
 	}
-
-	
-
 
 	return (
 		<div>
-			<Header />			
-			<Form searchCountries={searchCountries} searchCountriesBySelect={searchCountriesBySelect}/>
-			{data.isLoading ? <Loader /> : (<Main data={data.country}/>)}
+			<Header />
+			<Routes>
+				<Route
+					path="/"
+					element={
+						data.isLoading ? (
+							<Loader />
+						) : (
+							<Home
+								searchCountries={searchCountries}
+								searchCountriesBySelect={searchCountriesBySelect}
+								data={data.country}
+							/>
+						)
+					}
+				/>
+
+				<Route path="/CountryInfo/:id" element={<CountryInfo />} />
+			</Routes>
 			<Footer />
 		</div>
 	);

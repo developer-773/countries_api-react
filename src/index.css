@@ -3,7 +3,18 @@
   --body-bgcolor: #d6d6d6d6;
   --text-color: #111517;
   --card-border-radius: 5px;
-  --form-color: #fff
+  --form-color: #fff;
+  --placeholder: #000;
+  --preloader: #fff;
+}
+
+.theme-dark {
+  --header-bgcolor: #2B3844;
+  --text-color: #fff;
+  --body-bgcolor: #202C36;
+  --form-color: #2B3844;
+  --placeholder: #fff;
+  --preloader: #ffffff96;
 }
 
 * {

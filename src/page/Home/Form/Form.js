@@ -16,19 +16,18 @@ export default function Form(props) {
 
 
 	function handleSelect (evt) {
+		props.searchCountriesBySelect(evt.target.value)
 		setSelect(evt.target.value)
-		props.searchCountriesBySelect(values)
-
 	}
 
 
 	return (
 		<div className="container">
-			<div className="d-flex justify-content-between">
+			<div className="d-flex justify-content-between form">
 			<label className="form_label" htmlFor="">
 				<input className="form_input" value={inputValue} onChange={(evt) => setInput(evt.target.value)} onKeyDown={handleFormInput}  type="search" placeholder="Search for a country…" />
 			</label>
-			<select className="select" defaultValue={values}  onChange={handleSelect}>
+			<select className="select" defaultValue={values} onChange={handleSelect}>
 				<option value="Africa">Africa</option>
 				<option value="America">America</option>
 				<option value="Asia">Asia</option>

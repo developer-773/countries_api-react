@@ -1,5 +1,5 @@
 .header {
-    margin-bottom: 5rem;
+    position: relative;
     padding: 23px 0 24px 0;
     background-color: var(--header-bgcolor);
     color: var(--text-color);
@@ -18,7 +18,7 @@
     font-weight: 800;
     font-size: 24px;
     line-height: 33px;
-    color: #111517;
+    color: var(--text-color);
 }
 
 .header_btn {
@@ -27,7 +27,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-    color: #111517;
+    color: var(--text-color);
     border: 0;
     background-color: transparent;
 }

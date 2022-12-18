@@ -1,13 +1,12 @@
 import Countries from "./Country/Countries";
-// import Form from "../Form/Form";
+import "./Content.css"
 
-
-export default function Main({data}) {
+export default function Content({data}) {
     return(
         <main>
             <section className="countries">
                 <div className="container">
-                    <Countries data={data}/>
+                    {<Countries data={data}/>}        
                 </div>
             </section>
         </main>
